@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  
   function nav(){
     setIsOpen(!isOpen )
   }
@@ -11,7 +12,7 @@ const Navbar = () => {
   
   return (
     <nav className='w-full relative flex justify-between bg-gray-800 text-white p-4'>
-        <h1 className='font-bold text-2xl uppercase'>Multi-App</h1>
+        <h1 className='font-bold text-2xl uppercase'>react Apps</h1>
         <ul className='hidden md:flex space-x-4'>
             <li><a href="/">Home</a></li>
             <li><a href="/about">Apps</a></li>
