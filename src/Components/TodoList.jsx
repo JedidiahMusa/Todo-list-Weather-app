@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const TodoList = () => {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
+  const [hasLoaded, setHasLoaded] = useState(false);
+
 
   function handleDelete(idToDelete){
     const updatedTodos = todos.filter(todo => todo.id !== idToDelete);
     setTodos(updatedTodos);
   }
-
 
   function addTodo() {
     if(inputValue.trim() === '') return;
@@ -27,6 +28,32 @@ const TodoList = () => {
     );
     setTodos(updatedTodo)
   }
+    useEffect(()=> {
+      try {
+        const stored = localStorage.getItem("todos");
+        if (stored) {
+          setTodos(JSON.parse(stored))
+        }
+      } catch (error) {
+        console.error("Can't load todos from local storage: ", error)
+      }finally{
+        setHasLoaded(true)
+      }
+      
+  },[]);
+
+  
+  useEffect(()=> {
+    if (hasLoaded) {
+      try {
+      localStorage.setItem("todos", JSON.stringify(todos))
+    } catch (error) {
+      console.error("Error saving todos to local storage", error)
+    }
+    }
+    
+   
+  },[todos, hasLoaded]);
   
   return (
     <div className="p-8">
