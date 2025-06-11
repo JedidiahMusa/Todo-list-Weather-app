@@ -22,7 +22,7 @@ const Navbar = () => {
           {!isOpen?<GiHamburgerMenu onClick={nav} size={22} />:<IoCloseSharp onClick={nav} size={24} />}
         </div>
         
-        <div className={isOpen?'absolute w-48 flex bg-white border-1 border-gray-200 left-0 top-0':'hidden'}>
+        <div className={isOpen?'absolute w-48 flex bg-white border-1 z-50 border-gray-200 left-0 top-0':'hidden'}>
           <ul className='flex-col h-full py-4 w-full text-gray-600'>
             <li className='w-full p-4 hover:bg-gray-100'><a href="/">Home</a></li>
             <li className='w-full p-4 hover:bg-gray-100'><a href="/about">Apps</a></li>

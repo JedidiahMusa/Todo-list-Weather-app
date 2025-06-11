@@ -50,9 +50,7 @@ const TodoList = () => {
     } catch (error) {
       console.error("Error saving todos to local storage", error)
     }
-    }
-    
-   
+    }  
   },[todos, hasLoaded]);
   
   return (
