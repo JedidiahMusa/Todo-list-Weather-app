@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import bgImage from "../assets/bg-video.mp4";
+import bgImage from "../assets/bg-video.jpeg";
 import axios from "axios";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
@@ -12,42 +12,34 @@ function WeatherApp() {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=32bc402b910423d25e92ae33e759c97a`;
 
   const searchLocation = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" || event.type === "click") {
       axios.get(url).then((response) => {
         setData(response.data);
-        console.log(response.data);
+        setLocation("")
       });
-      setLocation("");
-    }
-  };
+    }}
 
   return (
     <div className="relative h-screen overflow-hidden ">
       <div>
-        <video
-          autoPlay
-          muted
-          loop
-          src={bgImage}
-          className="w-full -z-10 absolute h-full object-center object-cover "
-        ></video>
+        <img src={bgImage} className="w-full -z-10 absolute h-full object-center object-cover" alt="" />
       </div>
 
       <div className="w-full flex flex-col">
         <div className="w-full justify-center flex h-30 items-center ">
-          <div className="h-20 w-[90%] md:w-[70%] lg:w-[45%] px-4 gap-8 flex justify-between items-center">
-            <IoMdArrowRoundBack onClick={()=> {navigate("/")}} size={35} className="text-white" />
-              <div className="flex items-center gap-4">
+          <div className="h-20 w-[90%] md:w-[70%] lg:w-[45%] px-4 gap-6 flex items-center">
+            <IoMdArrowRoundBack onClick={()=> {navigate("/")}} size={35} className="text-white cursor-pointer hover:scale-105 " />
+              <div className="flex flex-1 items-center gap-4">
                 <input
             placeholder="Enter a city"
             type="text"
             onKeyPress={searchLocation}
             value={location}
             onChange={(event) => setLocation(event.target.value)}
-            className="border-1 px-6 py-3  flex-1 rounded-full text-[1.2rem] bg-[#ffffff2b] text-white border-white focus:outline-none placeholder-[#ffffff8a] "
+            className="border-1 px-6 py-3 w-full rounded-full text-[1.2rem] bg-[#ffffff2b] text-white border-white focus:outline-none placeholder-[#ffffff8a] "
             
           />
-            <IoSearch size={25} className="text-white"/>
+            <IoSearch onClick={searchLocation} size={30} className="text-white cursor-pointer hover:scale-105 "/>
           </div>
           
           

@@ -54,7 +54,7 @@ const TodoList = () => {
   }, [todos, hasLoaded]);
 
   return (
-    <div className="w-full flex justify-center py-12 ">
+    <div className="w-full flex justify-center py-2 ">
       <div className="w-[90%] md:w-[70%] lg:w-[45%]">
         <div className="flex items-center h-24 w-full gap-4 ">
           <IoMdArrowRoundBack
@@ -74,7 +74,7 @@ const TodoList = () => {
             onClick={addTodo}
             className="bg-gray-700 p-4 rounded-2xl transition-all duration-200 hover:bg-gray-800 text-[.8rem] text-white uppercase font-bold "
           >
-            add todo
+            add
           </button>
         </div>
 
