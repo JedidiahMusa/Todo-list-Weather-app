@@ -9,7 +9,7 @@ function WeatherApp() {
   const navigate = useNavigate();
   const [data, setData] = useState({});
   const [location, setLocation] = useState("");
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=32bc402b910423d25e92ae33e759c97a`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=32bc402b910423d25e92ae33e759c97a`;
 
   const searchLocation = (event) => {
     if (event.key === "Enter" || event.type === "click") {
@@ -53,7 +53,7 @@ function WeatherApp() {
               <p className="text-3xl font-semibold">{data.name}</p>
               {data.main ? (
                 <h2 className="text-8xl mt-4 font-extrabold">
-                  {data.main.temp.toFixed()}°F
+                  {data.main.temp.toFixed()}°C
                 </h2>
               ) : null}
             </div>
@@ -73,7 +73,7 @@ function WeatherApp() {
                 <div className="text-center">
                   {data.main ? (
                     <p className="text-[1.5rem] font-bold">
-                      {data.main.feels_like.toFixed()}°F
+                      {data.main.feels_like.toFixed()}°C
                     </p>
                   ) : null}
                   <p className="text-[1.2rem]">Feels Like</p>
