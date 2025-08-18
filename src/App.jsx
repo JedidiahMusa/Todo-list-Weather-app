@@ -1,4 +1,3 @@
-import Navbar from './Components/Navbar.jsx'
 import Home from './Components/Home.jsx'
 import TodoList from './Pages/TodoList.jsx'
 import WeatherApp from './Pages/WeatherApp.jsx'
