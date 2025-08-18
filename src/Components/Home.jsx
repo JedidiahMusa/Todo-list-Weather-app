@@ -5,7 +5,6 @@ import todo from "../assets/todo.png";
 
 function Home() {
   const navigate = useNavigate();
-
   return (
     <div className="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 h-screen w-full">
       <div>
