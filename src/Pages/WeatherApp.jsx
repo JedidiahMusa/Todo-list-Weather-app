@@ -15,36 +15,47 @@ function WeatherApp() {
     if (event.key === "Enter" || event.type === "click") {
       axios.get(url).then((response) => {
         setData(response.data);
-        setLocation("")
+        setLocation("");
       });
-    }}
+    }
+  };
 
   return (
     <div className="relative h-screen overflow-hidden ">
       <div>
-        <img src={bgImage} className="w-full -z-10 absolute h-full object-center object-cover" alt="" />
+        <img
+          src={bgImage}
+          className="w-full -z-10 absolute h-full object-center object-cover"
+          alt=""
+        />
       </div>
 
       <div className="w-full flex flex-col">
         <div className="w-full justify-center flex h-30 items-center ">
           <div className="h-20 w-[90%] md:w-[70%] lg:w-[45%] px-4 gap-6 flex items-center">
-            <IoMdArrowRoundBack onClick={()=> {navigate("/")}} size={35} className="text-white cursor-pointer hover:scale-105 " />
-              <div className="flex flex-1 items-center gap-4">
-                <input
-            placeholder="Enter a city"
-            type="text"
-            onKeyPress={searchLocation}
-            value={location}
-            onChange={(event) => setLocation(event.target.value)}
-            className="border-1 px-6 py-3 w-full rounded-full text-[1.2rem] bg-[#ffffff2b] text-white border-white focus:outline-none placeholder-[#ffffff8a] "
-            
-          />
-            <IoSearch onClick={searchLocation} size={30} className="text-white cursor-pointer hover:scale-105 "/>
+            <IoMdArrowRoundBack
+              onClick={() => {
+                navigate("/");
+              }}
+              size={35}
+              className="text-white cursor-pointer hover:scale-105 "
+            />
+            <div className="flex flex-1 items-center gap-4">
+              <input
+                placeholder="Enter a city"
+                type="text"
+                onKeyPress={searchLocation}
+                value={location}
+                onChange={(event) => setLocation(event.target.value)}
+                className="border-1 px-6 py-3 w-full rounded-full text-[1.2rem] bg-[#ffffff2b] text-white border-white focus:outline-none placeholder-[#ffffff8a] "
+              />
+              <IoSearch
+                onClick={searchLocation}
+                size={30}
+                className="text-white cursor-pointer hover:scale-105 "
+              />
+            </div>
           </div>
-          
-          
-          </div>
-          
         </div>
 
         <div className=" absolute top-[40%] flex items-center justify-center w-full ">
